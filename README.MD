@@ -1,5 +1,5 @@
 # Project Description
-This project is a homework assignment to teach how to get Pycharm setup with Docker, Flask, MySQL
+This project is a homework assignment to teach how to get Pycharm setup with Docker, Flask, MySQL, and Postman
 
 # Bootstrap Template Screenshot
 ![bootstrap template](screenshots/sql2.png)
