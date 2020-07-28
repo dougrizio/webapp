@@ -9,6 +9,8 @@ This project is a homework assignment to teach how to get Pycharm setup with Doc
 ![postman2_getrecord](screenshots/postman2_getrecord.png)
 
 ## C. Add New Record in Postman
+![postman3_post](screenshots/postman3_post.png)
+
 ![postman3A_post](screenshots/postman3A_post.png)
 
 ![postman3B_post](screenshots/postman3B_post.png)
