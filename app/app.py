@@ -100,14 +100,14 @@ def api_retrieve(oscar_id) -> str:
 def api_edit(oscar_id) -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
-    inputData = (content['fldYear'], content['fldAge'], content['fldName'], content['fldMovie'])
+    inputData = (content['fldYear'], content['fldAge'], content['fldName'], content['fldMovie'], oscar_id)
     sql_edit_query = """UPDATE tblOscarsImport t SET t.fldYear = %s, t.fldAge = %s, t.fldName = %s, t.fldMovie = %s WHERE t.id = %s """
     cursor.execute(sql_edit_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
     return resp
 
-@app.route('/api/v1/oscarAwards/', methods=['POST'])
+@app.route('/api/v1/oscarAwards', methods=['POST'])
 def api_add() -> str:
     cursor = mysql.get_db().cursor()
     content = request.json
