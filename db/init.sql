@@ -2,11 +2,11 @@ CREATE DATABASE oscarsData;
 use oscarsData;
 
 CREATE TABLE IF NOT EXISTS tblOscarsImport (
-    `Index` INT,
-    `Year` INT,
-    `Age` INT,
-    `Name` VARCHAR(25) CHARACTER SET utf8,
-    `Movie` VARCHAR(40) CHARACTER SET utf8
+    `fldIndex` INT,
+    `fldYear` INT,
+    `fldAge` INT,
+    `fldName` VARCHAR(25) CHARACTER SET utf8,
+    `fldMovie` VARCHAR(40) CHARACTER SET utf8
 );
 INSERT INTO tblOscarsImport VALUES
     ( 1, 1928, 44,' "Emil Jannings"',' "The Last Command The Way of All Flesh"'),
