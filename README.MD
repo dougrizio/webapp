@@ -12,7 +12,7 @@ This project is a homework assignment to teach how to get Pycharm setup with Doc
 ![shot3_onerecord](screenshots/shot3_onerecord.png)
 
 ## D. Add New Record
-![shot4A_addnew](screenshots/shot4A_addnew.png)
+![shot4A_addnew](screenshots/shot4A_addnew1.png)
 
 ![shot4B_addnew](screenshots/shot4B_addnew.png)
 
