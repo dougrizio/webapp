@@ -85,6 +85,7 @@ def api_browse() -> str:
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
+#-----------------------------------------------------------------------#
 
 @app.route('/api/v1/oscarAwards/<int:oscar_id>', methods=['GET'])
 def api_retrieve(oscar_id) -> str:
@@ -95,6 +96,16 @@ def api_retrieve(oscar_id) -> str:
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
+@app.route('/api/v1/oscarAwards/<int:oscar_id>', methods=['PUT'])
+def api_edit(oscar_id) -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputData = (content['fldYear'], content['fldAge'], content['fldName'], content['fldMovie'])
+    sql_edit_query = """UPDATE tblOscarsImport t SET t.fldYear = %s, t.fldAge = %s, t.fldName = %s, t.fldMovie = %s WHERE t.id = %s """
+    cursor.execute(sql_edit_query, inputData)
+    mysql.get_db().commit()
+    resp = Response(status=200, mimetype='application/json')
+    return resp
 
 @app.route('/api/v1/oscarAwards/', methods=['POST'])
 def api_add() -> str:
@@ -104,12 +115,6 @@ def api_add() -> str:
     sql_add_query = """INSERT INTO tblOscarsImport (fldYear, fldAge, fldName, fldMovie) VALUES (%s, %s, %s, %s) """
     cursor.execute(sql_add_query, inputData)
     mysql.get_db().commit()
-    resp = Response(status=201, mimetype='application/json')
-    return resp
-
-
-@app.route('/api/v1/oscarAwards/<int:oscar_id>', methods=['PUT'])
-def api_edit(oscar_id) -> str:
     resp = Response(status=201, mimetype='application/json')
     return resp
 
