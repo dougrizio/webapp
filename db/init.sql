@@ -3,8 +3,8 @@ use oscarsData;
 
 CREATE TABLE IF NOT EXISTS tblOscarsImport (
     `id` INT,
-    `fldYear` INT,
-    `fldAge` INT,
+    `fldYear` NUMERIC(4),
+    `fldAge` NUMERIC(2),
     `fldName` VARCHAR(25) CHARACTER SET utf8,
     `fldMovie` VARCHAR(40) CHARACTER SET utf8
 );

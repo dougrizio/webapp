@@ -10,10 +10,11 @@
         <li class="list-group-item">{{ oscar.fldMovie }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{oscar.id}}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{oscar.id}}" class="card-link btn btn-primary">EDIT OSCAR AWARD</a>
     </div>
 </div>
-<form action="/delete/{{oscar.id}}" method="post"><button type="submit" class="btn btn-danger">Save</button></form>
+
+<form action="/delete/{{oscar.id}}" method="post"><button type="submit" class="btn btn-danger">DELETE OSCAR AWARD</button></form>
 
 
 {% endblock %}

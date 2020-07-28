@@ -60,10 +60,9 @@ def form_insert_get():
 @app.route('/oscarAwards/new', methods=['POST'])
 def form_insert_post():
     cursor = mysql.get_db().cursor()
-    inputData = (request.form.get('fldName'), request.form.get('fldLat'), request.form.get('fldLong'),
-                 request.form.get('fldCountry'), request.form.get('fldAbbreviation'),
-                 request.form.get('fldCapitalStatus'), request.form.get('fldPopulation'))
-    sql_insert_query = """INSERT INTO tblOscarsImport (fldYear,fldAge,fldName,fldMovie) VALUES (%s, %s, %s, %s) """
+    inputData = (request.form.get('fldYear'), request.form.get('fldAge'), request.form.get('fldName'),
+                 request.form.get('fldMovie'))
+    sql_insert_query = """INSERT INTO tblOscarsImport (fldYear, fldAge, fldName, fldMovie) VALUES (%s, %s, %s, %s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -99,6 +98,12 @@ def api_retrieve(oscar_id) -> str:
 
 @app.route('/api/v1/oscarAwards/', methods=['POST'])
 def api_add() -> str:
+    cursor = mysql.get_db().cursor()
+    content = request.json
+    inputData = (content['fldYear'], content['fldAge'], content['fldName'], content['fldMovie'])
+    sql_add_query = """INSERT INTO tblOscarsImport (fldYear, fldAge, fldName, fldMovie) VALUES (%s, %s, %s, %s) """
+    cursor.execute(sql_add_query, inputData)
+    mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
     return resp
 
