@@ -2,7 +2,7 @@ CREATE DATABASE oscarsData;
 use oscarsData;
 
 CREATE TABLE IF NOT EXISTS tblOscarsImport (
-    `fldIndex` INT,
+    `id` INT,
     `fldYear` INT,
     `fldAge` INT,
     `fldName` VARCHAR(25) CHARACTER SET utf8,
